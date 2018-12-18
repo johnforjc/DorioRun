@@ -1,15 +1,19 @@
-#include "frame.h"
+#include "howtoplay.h"
 
 Play::Play(const wxString& title)
 	:wxFrame(NULL, wxID_ANY, title, wxDefaultPosition)
 {
 	
 	Connect(wxEVT_PAINT,wxPaintEventHandler(Play::OnPaint));
-	Connect(wxID_button1, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(Play::OnClick));
+	
 }
 
 void Play::OnPaint(wxPaintEvent& event)
 {
+	//wxPanel *panel = new wxPanel(this, wxID_ANY);
+	wxButton *button= new wxButton(this,wxID_button1,wxT("Back"),wxPoint(10,20));
+	button->SetForegroundColour(*wxWHITE);
+	Connect(wxID_button1, wxEVT_BUTTON, wxCommandEventHandler(Play::OnClick));
 	
 	wxPaintDC dc(this);
 	wxFont *font;
@@ -20,10 +24,6 @@ void Play::OnPaint(wxPaintEvent& event)
 	dc.DrawRectangle(100,200,1166,500);
 }
 
-Play::Button(const wxString& title)
-{
-	Connect(wxID_button1, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(Play::OnClick));
-}
 
 void Play::OnClick(wxCommandEvent& event)
 {

@@ -7,7 +7,6 @@ class Play : public wxFrame
 public:
 	Play(const wxString& title);
 	void OnPaint(wxPaintEvent& event);
-	Button(const wxString& title);
 	void OnClick (wxCommandEvent& event);
 };
 
